@@ -1,16 +1,14 @@
+body {
+  background-color: #e0fcf3;
+}
+
 header h1 {
   background-color: #9ceed3;
   margin: 0;
   padding: 0;
   text-align: center;
-}
 
-body {
-  background-color: #e0fcf3;
-}
-
-h1 header body {
-  font-family: "Chicle", cursive;
+  font-family: 'Chicle', cursive;
 }
 
 .searchBar {
@@ -19,4 +17,6 @@ h1 header body {
 
 .pure-button {
   background-color: #29a57e;
+  font-weight: lighter;
+  font-family: 'Chicle', cursive;
 }
