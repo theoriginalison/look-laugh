@@ -1,0 +1,22 @@
+body {
+  background-color: #e0fcf3;
+}
+
+header h1 {
+  background-color: #9ceed3;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  font-family: 'Chicle', cursive;
+}
+
+.searchBar {
+  padding: 5px;
+}
+
+.pure-button {
+  background-color: #29a57e;
+  font-weight: lighter;
+  font-family: 'Chicle', cursive;
+}
