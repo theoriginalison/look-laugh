@@ -18,6 +18,7 @@ $(".searchBtn").on("click", function() {
         var divEl = $(".giphyImg");
         var imgEl = $("<img>");
         imgEl.attr("src", giphyPath);
+        divEl.empty()
         divEl.prepend(imgEl);
 
         // console.log(response.)
