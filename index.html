@@ -52,7 +52,6 @@
     </div>
     <div class="pure-g">
       <div class="pure-u-1 l-box">
-
         <button class="button-large pure-button" id="saveJoke">Save Your Joke</button>
       </div>
     </div>
@@ -63,8 +62,19 @@
 
   <!-- Beginning of Favorites -->
 
-  <h1 id="favoriteHeader">Favorites</h1>
-  <div id="favorites">They'll go here when you save something. Please save something.</div>
+  <container id="favoritesContainer">
+    <h1 id="favoriteHeader">Favorites</h1>
+    <div id="favDiv">
+      <p id="favorites">
+        They'll go here when you save something. Please save something.
+      </p>
+    </div>
+    <button class="button-large pure-button" id="clearFavorites">Clear Favorites</button>
+  </container>
+
+
+  <!-- End of Favorites -->
+
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
