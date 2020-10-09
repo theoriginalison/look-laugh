@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Beginning of Head Section -->
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chicle&display=swap" rel="stylesheet">
 </head>
 <!--End of Head Section -->
 
 <!--Beginning of Body Tag/Element -->
+
 <body>
 
   <!-- Beginning of Header -->
@@ -20,46 +22,63 @@
     <h1><b>Look & Laugh</b></h1>
   </header>
   <!--End of Header-->
- 
-  
+
+
   <!--Beginning of Form-->
-  <div><form class="searchBar" action=" ">
-    <input type="text" class="usersInput" placeholder=" " name=" ">
-    <button type="button" class="searchBtn">Search</button>
-  </form></div>
+  <div>
+    <form class="searchBar" action=" ">
+      <input type="text" class="usersInput" placeholder=" " name=" ">
+      <button type="button" class="searchBtn">Search</button>
+    </form>
+  </div>
 
   <!--Below is the place where the image is being prepended now-->
-  <div class="giphyImg"></div>
-
-  <div class="pure-form pure-g">
-    <div class="pure-u-1-2">
-        <input type="text" class="pure-input-1" placeholder="image" id="images"/>
-        <button class="pure-button" id="saveImage">Save Your Image</button>
+  <main>
+    <div class="pure-g">
+      <div class="pure-u-1 l-box">
+        <div class="giphyImg pure-img"><i class="far fa-grin-tongue-wink fa-7x"></i></div>
+      </div>
     </div>
-    <div class="pure-u-1-2">
-        <input type="text" class="pure-input-1" placeholder="joke" id="jokes"/>
-        <button class="pure-button" id="saveJoke">Save Your Joke</button>
+    <div class="pure-g">
+      <div class="pure-u-1 l-box">
+        <button class="button-large pure-button" id="saveImage">Save Your Image</button>
+      </div>
     </div>
-  </div>
- <!--End of Image Forms-->
+    <div class="pure-g">
+      <div class="pure-u-1 l-box">
+        <!-- <input type="text" class="pure-input-1" placeholder="joke" id="jokes" /> -->
+        <textarea class="pure-input-1-2" id="jokes" placeholder="Is it funny yet?"></textarea>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1 l-box">
+
+        <button class="button-large pure-button" id="saveJoke">Save Your Joke</button>
+      </div>
+    </div>
+  </main>
+  <!--End of Image Forms-->
 
 
 
-<!-- Beginning of Favorites -->
-  <div id="favorites">Favorites will be prepended here to this div</div>
+  <!-- Beginning of Favorites -->
+
+  <h1 id="favoriteHeader">Favorites</h1>
+  <div id="favorites">They'll go here when you save something. Please save something.</div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/941444bb10.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>
-<!-- End of jQuery and Javascript Links -->
+  <!-- End of jQuery and Javascript Links -->
 
 
-<!-- End of Body Tag/Element -->
-  </body>
+  <!-- End of Body Tag/Element -->
+</body>
 
 <!-- End of Html Document -->
+
 </html>

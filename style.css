@@ -1,5 +1,7 @@
 body {
   background-color: #e0fcf3;
+  font-family: 'Chicle', cursive;
+
 }
 
 header h1 {
@@ -7,16 +9,48 @@ header h1 {
   margin: 0;
   padding: 0;
   text-align: center;
-
   font-family: 'Chicle', cursive;
+  font-size: 4em;
+}
+
+#favoriteHeader {
+  background-color: #9ceed3;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  text-align: center;
+  font-family: 'Chicle', cursive;
+  font-size: 3em;
 }
 
 .searchBar {
   padding: 5px;
+  text-align: center;
+}
+
+main {
+  text-align: center;
 }
 
 .pure-button {
   background-color: #29a57e;
   font-weight: lighter;
   font-family: 'Chicle', cursive;
+
+}
+
+.button-large {
+  font-size: 150%;
+}
+
+.pure-g > div {
+  box-sizing: border-box;
+}
+.l-box {
+  padding: 1em;
+  margin: .05em;
+}
+
+#favorites {
+  text-align: center;
 }
