@@ -14,16 +14,39 @@ $(".searchBtn").on("click", function() {
         console.log(queryURL);
         console.log(response.data[0].url);
         var giphyPath = response.data[0].images.original.url;
-
+        //saving the searched image URL to local storage
+        localStorage.setItem("searchURL", giphyPath);
+        
         var divEl = $(".giphyImg");
         var imgEl = $("<img>");
         imgEl.attr("src", giphyPath);
+
         divEl.empty()
         divEl.prepend(imgEl);
 
         // console.log(response.)
       });
   }); 
+
+  $("#saveImage").on("click", function(){
+    var favImgEl = $("<img>");
+    var searchedImage = localStorage.getItem("searchURL");
+
+    favImgEl.attr("src", searchedImage);
+    $("#favorites").empty();
+
+    $("#favDiv").prepend(favImgEl);
+  })
+
+  $("#saveJoke").on("click", function(){
+    var favJokeEl = $("<textarea>");
+    var searchedJoke = localStorage.getItem("searchJoke");
+
+    $("#favorites").empty();
+    favJokeEl.val(searchedJoke);
+
+    $("#favDiv").prepend(favJokeEl);
+  })
   
   $(document).on('click', '.searchBtn', function(event) {
     event.preventDefault();  
@@ -39,13 +62,25 @@ $(".searchBtn").on("click", function() {
     console.log(response.setup);
     console.log(response.delivery);
     console.log(response.joke);
-   // Transfer content to HTML
-   if (response.setup == undefined) {
-    $("#jokes").val(response.joke)
-   }
-   else {
-    $("#jokes").val(response.setup + "    "  + response.delivery)
-   }
+    
+    // Transfer content to HTML
+    if (response.setup == undefined) {
+
+      $("#jokes").val(response.joke);
+
+      var searchJoke = response.joke;
+      console.log(searchJoke);
+      //saving the searched image URL to local storage
+      localStorage.setItem("searchJoke", searchJoke);
+    }
+    else {
+      $("#jokes").val(response.setup + "    "  + response.delivery)
+      
+      var searchJoke2pt = response.setup + "    "  + response.delivery;
+      console.log(searchJoke2pt);
+      //saving the searched image URL to local storage
+      localStorage.setItem("searchJoke", searchJoke2pt);
+    }
   });
   
   });
