@@ -4,6 +4,8 @@ var giphyPath;
 var searchJoke;
 var searchJoke2pt;
 var finalJoke;
+var favJokeEl;
+var favImgEl;
 // if (searchedImage){
 //   saveImage(searchedImage)
 // }
@@ -128,5 +130,5 @@ $(".searchBtn").on("click", function() {
 
     $("#clearFavorites").on("click", function(){
       localStorage.clear();
-      $("#favorites").empty();
+      $("#favDiv").empty()
     })
