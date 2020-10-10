@@ -1,8 +1,11 @@
-// var searchedImage = JSON.parse(localStorage.getItem("searchURL")) || [];
-// var searchedJoke = JSON.parse(localStorage.getItem("searchJoke")) || [];
 var searchedImage = [];
 var searchedJoke = [];
 var giphyPath; 
+var searchJoke;
+var searchJoke2pt;
+var finalJoke;
+var favJokeEl;
+var favImgEl;
 // if (searchedImage){
 //   saveImage(searchedImage)
 // }
@@ -79,46 +82,53 @@ $(".searchBtn").on("click", function() {
     console.log(response.setup);
     console.log(response.delivery);
     console.log(response.joke);
-    
+    responseJ = response.setup;
     // Transfer content to HTML
     if (response.setup == undefined) {
 
       $("#jokes").val(response.joke);
 
-      var searchJoke = response.joke;
+      searchJoke = response.joke;
       console.log(searchJoke);
+      finalJoke = searchJoke;
       //saving the searched image URL to local storage
-      searchedJoke.push(searchJoke);
-      localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
+      // searchedJoke.push(searchJoke);
+      // localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
     }
     else {
       $("#jokes").val(response.setup + "    "  + response.delivery)
       
-      var searchJoke2pt = response.setup + "    "  + response.delivery;
+      searchJoke2pt = response.setup + "    "  + response.delivery;
       console.log(searchJoke2pt);
+      finalJoke = searchJoke2pt;
       //saving the searched image URL to local storage
-      searchedJoke.push(searchJoke2pt);
-      localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
+      // searchedJoke.push(searchJoke2pt);
+      // localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
+    }
+  });
+  
+  });
+
+  $("#saveJoke").on("click", function(){
+    saveJoke(searchedJoke)
+  })
+
+    function saveJoke(searchedJoke){
+    var favJokeEl = $("<textarea>");
+    searchedJoke.push(finalJoke);
+    localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
+
+    for (var i = 0; i < searchedJoke.length; i++) {
+    searchedJoke = JSON.parse(localStorage.getItem("searchJoke"));
+
+    $("#favorites").empty();
+    favJokeEl.val(searchedJoke[i]);
+
+    $("#favDiv").prepend(favJokeEl);
+    }
     }
 
-    $("#saveJoke").on("click", function(){
-      saveJoke(searchedJoke)
+    $("#clearFavorites").on("click", function(){
+      localStorage.clear();
+      $("#favDiv").empty()
     })
-  
-      function saveJoke(searchedJoke){
-      var favJokeEl = $("<textarea>");
-      searchedJoke = JSON.parse(localStorage.getItem("searchJoke"));
-  
-      $("#favorites").empty();
-      favJokeEl.val(searchedJoke);
-  
-      $("#favDiv").prepend(favJokeEl);
-      }
-  });
-  
-  });
-
-  $("#clearFavorites").on("click", function(){
-    localStorage.clear();
-    $("#favDiv").empty()
-  });
