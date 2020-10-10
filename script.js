@@ -2,6 +2,7 @@
 // var searchedJoke = JSON.parse(localStorage.getItem("searchJoke")) || [];
 var searchedImage = [];
 var searchedJoke = [];
+var giphyPath; 
 // if (searchedImage){
 //   saveImage(searchedImage)
 // }
@@ -24,7 +25,7 @@ $(".searchBtn").on("click", function() {
         console.log(response);
         console.log(queryURL);
         console.log(response.data[0].url);
-        var giphyPath = response.data[0].images.original.url;
+        giphyPath = response.data[0].images.original.url;
         //saving the searched image URL to local storage
         // searchedImage.push(giphyPath);
         // localStorage.setItem("searchURL", JSON.stringify(searchedImage));
@@ -37,30 +38,31 @@ $(".searchBtn").on("click", function() {
         divEl.prepend(imgEl);
 
         // console.log(response.)
-        $("#saveImage").on("click", function(){
-          saveImage(searchedImage)
-        })
-      
-          function saveImage(searchedImage) {
-          var favImgEl = $("<img>");
-          
-          searchedImage.push(giphyPath);
-          
-          console.log(searchedImage)
-          localStorage.setItem("searchURL", JSON.stringify(searchedImage));
-          for (var i=0; i<searchedImage.length; i++) {
-          searchedImage = JSON.parse(localStorage.getItem("searchURL"));
-         
-          favImgEl.attr("src", searchedImage[i]);
-          $("#favorites").empty();
-      
-          $("#favDiv").prepend(favImgEl);
-          }
-          
-          }
+
       });
   }); 
 
+  $("#saveImage").on("click", function(){
+    saveImage(searchedImage)
+  });
+
+  function saveImage(searchedImage) {
+    var favImgEl = $("<img>");
+
+    searchedImage.push(giphyPath);
+
+    console.log(searchedImage)
+    localStorage.setItem("searchURL", JSON.stringify(searchedImage));
+    for (var i = 0; i < searchedImage.length; i++) {
+      searchedImage = JSON.parse(localStorage.getItem("searchURL"));
+
+      favImgEl.attr("src", searchedImage[i]);
+      $("#favorites").empty();
+
+      $("#favDiv").prepend(favImgEl);
+    }
+
+  };
   
   
   $(document).on('click', '.searchBtn', function(event) {
