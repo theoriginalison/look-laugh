@@ -117,3 +117,8 @@ $(".searchBtn").on("click", function() {
   });
   
   });
+
+  $("#clearFavorites").on("click", function(){
+    localStorage.clear();
+    $("#favDiv").empty()
+  });
