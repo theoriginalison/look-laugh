@@ -1,3 +1,14 @@
+// var searchedImage = JSON.parse(localStorage.getItem("searchURL")) || [];
+// var searchedJoke = JSON.parse(localStorage.getItem("searchJoke")) || [];
+var searchedImage = [];
+var searchedJoke = [];
+// if (searchedImage){
+//   saveImage(searchedImage)
+// }
+
+// if (searchedJoke){
+//   saveJoke(searchedJoke)
+// }
 
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
@@ -15,38 +26,42 @@ $(".searchBtn").on("click", function() {
         console.log(response.data[0].url);
         var giphyPath = response.data[0].images.original.url;
         //saving the searched image URL to local storage
-        localStorage.setItem("searchURL", giphyPath);
+        // searchedImage.push(giphyPath);
+        // localStorage.setItem("searchURL", JSON.stringify(searchedImage));
         
         var divEl = $(".giphyImg");
         var imgEl = $("<img>");
         imgEl.attr("src", giphyPath);
-
+        
         divEl.empty()
         divEl.prepend(imgEl);
 
         // console.log(response.)
+        $("#saveImage").on("click", function(){
+          saveImage(searchedImage)
+        })
+      
+          function saveImage(searchedImage) {
+          var favImgEl = $("<img>");
+          
+          searchedImage.push(giphyPath);
+          
+          console.log(searchedImage)
+          localStorage.setItem("searchURL", JSON.stringify(searchedImage));
+          for (var i=0; i<searchedImage.length; i++) {
+          searchedImage = JSON.parse(localStorage.getItem("searchURL"));
+         
+          favImgEl.attr("src", searchedImage[i]);
+          $("#favorites").empty();
+      
+          $("#favDiv").prepend(favImgEl);
+          }
+          
+          }
       });
   }); 
 
-  $("#saveImage").on("click", function(){
-    var favImgEl = $("<img>");
-    var searchedImage = localStorage.getItem("searchURL");
-
-    favImgEl.attr("src", searchedImage);
-    $("#favorites").empty();
-
-    $("#favDiv").prepend(favImgEl);
-  })
-
-  $("#saveJoke").on("click", function(){
-    var favJokeEl = $("<textarea>");
-    var searchedJoke = localStorage.getItem("searchJoke");
-
-    $("#favorites").empty();
-    favJokeEl.val(searchedJoke);
-
-    $("#favDiv").prepend(favJokeEl);
-  })
+  
   
   $(document).on('click', '.searchBtn', function(event) {
     event.preventDefault();  
@@ -71,7 +86,8 @@ $(".searchBtn").on("click", function() {
       var searchJoke = response.joke;
       console.log(searchJoke);
       //saving the searched image URL to local storage
-      localStorage.setItem("searchJoke", searchJoke);
+      searchedJoke.push(searchJoke);
+      localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
     }
     else {
       $("#jokes").val(response.setup + "    "  + response.delivery)
@@ -79,8 +95,23 @@ $(".searchBtn").on("click", function() {
       var searchJoke2pt = response.setup + "    "  + response.delivery;
       console.log(searchJoke2pt);
       //saving the searched image URL to local storage
-      localStorage.setItem("searchJoke", searchJoke2pt);
+      searchedJoke.push(searchJoke2pt);
+      localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
     }
+
+    $("#saveJoke").on("click", function(){
+      saveJoke(searchedJoke)
+    })
+  
+      function saveJoke(searchedJoke){
+      var favJokeEl = $("<textarea>");
+      searchedJoke = JSON.parse(localStorage.getItem("searchJoke"));
+  
+      $("#favorites").empty();
+      favJokeEl.val(searchedJoke);
+  
+      $("#favDiv").prepend(favJokeEl);
+      }
   });
   
   });
