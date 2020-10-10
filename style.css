@@ -39,6 +39,11 @@ main {
 
 }
 
+#jokes {
+  width: 350px;
+  height: 200px;
+}
+
 .button-large {
   font-size: 150%;
 }
@@ -51,10 +56,6 @@ main {
   margin: .05em;
 }
 
-#favorites {
-  text-align: center;
-}
-
-#clearFavorites {
+#favDiv {
   text-align: center;
 }
