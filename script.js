@@ -72,7 +72,7 @@ $(".searchBtn").on("click", function() {
     event.preventDefault();  
     var usersInput = $("input").val()
     console.log(usersInput)
-    var queryURL = "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=racist,sexist&contains="+ usersInput;
+    var queryURL = "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&contains="+ usersInput;
     console.log(queryURL)
     $.ajax({
     url: queryURL,
