@@ -40,6 +40,8 @@ for (var i = 0; i < searchedJoke.length; i++) {
 
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
+    $(".cat").empty();
+    
     var usersInput = $("input").val();
     console.log(usersInput);
     var APIKey = "exe1mRjrNORY4JZqVFCNFzS1XTPTrMfu";
