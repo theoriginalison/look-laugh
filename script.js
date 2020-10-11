@@ -6,6 +6,8 @@ var searchJoke2pt;
 var finalJoke;
 var favJokeEl;
 var favImgEl;
+// var favImgEl = $("<img>");
+// var searchURL=[];
 // if (searchedImage){
 //   saveImage(searchedImage)
 // }
@@ -13,6 +15,26 @@ var favImgEl;
 // if (searchedJoke){
 //   saveJoke(searchedJoke)
 // }
+
+$(window).on("load",function() {
+searchedImage = JSON.parse(localStorage.getItem("searchURL"));
+// console.log(searchedImage)
+searchedJoke = JSON.parse(localStorage.getItem("searchJoke"));
+
+for (var i = 0; i < searchedImage.length; i++) {
+  favImgEl = $("<img>").attr("src", searchedImage[i]);
+  $("#favorites").empty();
+
+  $("#favDiv").prepend(favImgEl);
+}
+for (var i = 0; i < searchedJoke.length; i++) {
+  favJokeEl = $("<textarea>");
+  $("#favorites").empty();
+  favJokeEl.val(searchedJoke[i]);
+
+  $("#favDiv").prepend(favJokeEl);
+  }
+})
 
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
@@ -104,6 +126,11 @@ $(".searchBtn").on("click", function() {
       //saving the searched image URL to local storage
       // searchedJoke.push(searchJoke2pt);
       // localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
+    }
+
+    if (searchJoke == undefined && response.setup == undefined) {
+      $("#jokes").val("Hmmmm Sorry, that's not really funny, try again.")
+    
     }
   });
   
