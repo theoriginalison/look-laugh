@@ -6,6 +6,10 @@ var searchJoke2pt;
 var finalJoke;
 var favJokeEl;
 var favImgEl;
+var catImgEl;
+var catArray = [100, 200, 204, 206, 303, 400, 401, 403, 404, 406, 409, 412, 416, 417, 418, 420, 421, 422, 429, 444, 450, 500, 502, 503, 508, 599];
+// var favImgEl = $("<img>");
+// var searchURL=[];
 // if (searchedImage){
 //   saveImage(searchedImage)
 // }
@@ -13,6 +17,26 @@ var favImgEl;
 // if (searchedJoke){
 //   saveJoke(searchedJoke)
 // }
+
+$(window).on("load",function() {
+searchedImage = JSON.parse(localStorage.getItem("searchURL"));
+// console.log(searchedImage)
+searchedJoke = JSON.parse(localStorage.getItem("searchJoke"));
+
+for (var i = 0; i < searchedImage.length; i++) {
+  favImgEl = $("<img>").attr("src", searchedImage[i]);
+  $("#favorites").empty();
+
+  $("#favDiv").prepend(favImgEl);
+}
+for (var i = 0; i < searchedJoke.length; i++) {
+  favJokeEl = $("<textarea>");
+  $("#favorites").empty();
+  favJokeEl.val(searchedJoke[i]);
+
+  $("#favDiv").prepend(favJokeEl);
+  }
+})
 
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
@@ -104,6 +128,19 @@ $(".searchBtn").on("click", function() {
       //saving the searched image URL to local storage
       // searchedJoke.push(searchJoke2pt);
       // localStorage.setItem("searchJoke", JSON.stringify(searchedJoke));
+    }
+
+    if (searchJoke == undefined && response.setup == undefined) {
+      $("#jokes").val("Hmmmm Sorry, that's not really funny, try again.")
+
+      var catArrayIndex = Math.floor((Math.random() * catArray.length) + 1);
+      var catURL = "https://http.cat/"+catArray[catArrayIndex];
+       catImgEl = $("<img>");
+       catImgEl.attr("src", catURL);
+      $(".cat").empty();
+
+      $(".cat").append(catImgEl);
+
     }
   });
   
