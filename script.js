@@ -8,15 +8,6 @@ var favJokeEl;
 var favImgEl;
 var catImgEl;
 var catArray = [100, 200, 204, 206, 303, 400, 401, 403, 404, 406, 409, 412, 416, 417, 418, 420, 421, 422, 429, 444, 450, 500, 502, 503, 508, 599];
-// var favImgEl = $("<img>");
-// var searchURL=[];
-// if (searchedImage){
-//   saveImage(searchedImage)
-// }
-
-// if (searchedJoke){
-//   saveJoke(searchedJoke)
-// }
 
 $(window).on("load",function() {
 searchedImage = JSON.parse(localStorage.getItem("searchURL"));
@@ -40,6 +31,8 @@ for (var i = 0; i < searchedJoke.length; i++) {
 
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
+    $(".cat").empty();
+
     var usersInput = $("input").val();
     console.log(usersInput);
     var APIKey = "exe1mRjrNORY4JZqVFCNFzS1XTPTrMfu";
@@ -53,9 +46,6 @@ $(".searchBtn").on("click", function() {
         console.log(queryURL);
         console.log(response.data[0].url);
         giphyPath = response.data[0].images.original.url;
-        //saving the searched image URL to local storage
-        // searchedImage.push(giphyPath);
-        // localStorage.setItem("searchURL", JSON.stringify(searchedImage));
         
         var divEl = $(".giphyImg");
         var imgEl = $("<img>");
