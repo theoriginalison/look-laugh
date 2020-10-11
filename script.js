@@ -8,15 +8,6 @@ var favJokeEl;
 var favImgEl;
 var catImgEl;
 var catArray = [100, 200, 204, 206, 303, 400, 401, 403, 404, 406, 409, 412, 416, 417, 418, 420, 421, 422, 429, 444, 450, 500, 502, 503, 508, 599];
-// var favImgEl = $("<img>");
-// var searchURL=[];
-// if (searchedImage){
-//   saveImage(searchedImage)
-// }
-
-// if (searchedJoke){
-//   saveJoke(searchedJoke)
-// }
 
 $(window).on("load",function() {
 searchedImage = JSON.parse(localStorage.getItem("searchURL"));
