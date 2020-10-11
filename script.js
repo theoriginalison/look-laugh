@@ -41,7 +41,7 @@ for (var i = 0; i < searchedJoke.length; i++) {
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
     $(".cat").empty();
-    
+
     var usersInput = $("input").val();
     console.log(usersInput);
     var APIKey = "exe1mRjrNORY4JZqVFCNFzS1XTPTrMfu";
@@ -55,9 +55,6 @@ $(".searchBtn").on("click", function() {
         console.log(queryURL);
         console.log(response.data[0].url);
         giphyPath = response.data[0].images.original.url;
-        //saving the searched image URL to local storage
-        // searchedImage.push(giphyPath);
-        // localStorage.setItem("searchURL", JSON.stringify(searchedImage));
         
         var divEl = $(".giphyImg");
         var imgEl = $("<img>");
