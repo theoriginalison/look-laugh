@@ -9,10 +9,12 @@ var favImgEl;
 var catImgEl;
 var catArray = [100, 200, 204, 206, 303, 400, 401, 403, 404, 406, 409, 412, 416, 417, 418, 420, 421, 422, 429, 444, 450, 500, 502, 503, 508, 599];
 
+
+// =================================================================
 $(window).on("load",function() {
-searchedImage = JSON.parse(localStorage.getItem("searchURL"));
+searchedImage = JSON.parse(localStorage.getItem("searchURL")) || [];
 // console.log(searchedImage)
-searchedJoke = JSON.parse(localStorage.getItem("searchJoke"));
+searchedJoke = JSON.parse(localStorage.getItem("searchJoke")) || [];
 
 for (var i = 0; i < searchedImage.length; i++) {
   favImgEl = $("<img>").attr("src", searchedImage[i]);
@@ -28,6 +30,7 @@ for (var i = 0; i < searchedJoke.length; i++) {
   $("#favDiv").prepend(favJokeEl);
   }
 })
+// =================================================================
 
 $(".searchBtn").on("click", function() {
     // event.preventDefault();  
