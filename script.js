@@ -7,6 +7,7 @@ var finalJoke;
 var favJokeEl;
 var favImgEl;
 var catImgEl;
+var noJoke = ["Hmmmm. Sorry, that's not really funny, try again.", "I don't like that idea... try again", "No one is here to take your request", "Back in 10min... try again", "We're on corney joke strike... try again", "Some things in life are not worth searching for... try again", "I searched high and low... no", "No... try again", "I couldn't find it, but you found me. Thanks for the company. Try again."]
 var catArray = [100, 200, 204, 206, 303, 400, 401, 403, 404, 406, 409, 412, 416, 417, 418, 420, 421, 422, 429, 444, 450, 500, 502, 503, 508, 599];
 
 
@@ -124,7 +125,8 @@ $(".searchBtn").on("click", function() {
     }
 
     if (searchJoke == undefined && response.setup == undefined) {
-      $("#jokes").val("Hmmmm Sorry, that's not really funny, try again.")
+      var noJoketArrayIndex = Math.floor((Math.random() * noJoke.length) + 1);
+      $("#jokes").val(noJoke[noJoketArrayIndex]);
 
       var catArrayIndex = Math.floor((Math.random() * catArray.length) + 1);
       var catURL = "https://http.cat/"+catArray[catArrayIndex];
