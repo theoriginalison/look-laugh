@@ -2,11 +2,13 @@
 https://theoriginalison.github.io/look-laugh/ 
 
 ## Files and Directories
+```
 index.html
 script.js
 style.css
 README.md
 >images 
+```
 
 ## look-laugh
 Files contain the Look and Laugh App. A mental health and wellness 
@@ -28,7 +30,7 @@ Button configurations:
 - Save: Images, and jokes will be sent to "Favorites" section for user to view later. 
 - Clear: User can clear images, and joke from "Favorites section".
 
-![Look & Laugh App Preview](images\preview-image.jpg)
+![Look & Laugh App Preview](images/preview-image.jpg)
 
 ## Credits
 © 2020 Roman, Deirdre, Rocky, & Alison
